@@ -49,18 +49,17 @@
 </head>
 <body>
   <canvas id="fireworks"></canvas>
-  <h1>Năm mới tôi chúc bạn Hà Thị Ngọc Ánh </h1>
-  <h2>Chúc bạn năm mới bỏ lại hết muộn phiền tiêu cực những điều không vui của năm cũ
-  bắt đầu năm mới với nụ cười xinh trên môi,để gặp thật nhiều may mắn nha🤍 
-  Quan trọng nè:sang kì 2 chăm chỉ học và đừng để môn nào phải trồng củ cải nha
-    </h2>
-  <script>t
+  <h1>Năm mới tôi chúc bạn Hà Thị Ngọc Ánh</h1>
+  <h2>Chúc bạn năm mới bỏ lại hết muộn phiền tiêu cực những điều không vui của năm cũ,<br>
+      bắt đầu năm mới với nụ cười xinh trên môi, để gặp thật nhiều may mắn nha 🤍</h2>
+  <script>
     const canvas = document.getElementById('fireworks');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
     let particles = [];
+    let hearts = [];
     const colors = ['#ff66cc', '#ff99cc', '#ffcccc', '#ffb3e6', '#ffe6f2'];
 
     class Particle {
@@ -116,8 +115,8 @@
       }
 
       update() {
-        this.y -= 2;
-        this.alpha -= 0.02;
+        this.y -= 2; // Trái tim bay lên
+        this.alpha -= 0.02; // Dần biến mất
       }
     }
 
@@ -136,7 +135,6 @@
       }
     }
 
-    let hearts = [];
     function createHeart() {
       const x = Math.random() * canvas.width;
       const size = Math.random() * 20 + 10;
@@ -146,6 +144,7 @@
 
     function animate() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+
       particles.forEach((particle, index) => {
         if (particle.alpha <= 0) {
           particles.splice(index, 1);
